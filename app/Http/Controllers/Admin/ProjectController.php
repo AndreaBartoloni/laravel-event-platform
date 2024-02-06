@@ -26,7 +26,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $tags = Tag::class;
+        $tags = Tag::all();
         return view("admin.car.create", compact("tags"));
     }
 
@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $newCar->fill($data);
         $newCar->save();
         $newCar->tags()->attach($request->tags);
-        return redirect()->route("admin.car.index");
+        return redirect()->route("admin.cars.index");
 
     }
 
