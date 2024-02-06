@@ -8,12 +8,12 @@
                     <div class="card">
                         <div class="card-header">{{ $car->name}}</div>
                         <div class="card-body">{{ $car->image }}</div>
-                        {{-- <div class="card-body">
-                            @foreach ($post->tecnologies as $tecnology)
-                                {{ $tecnology->name }}
+                        <div class="card-body">
+                            @foreach ($car->tags as $tag)
+                                {{ $tag->name }}
                             @endforeach
                             
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             @endforeach
