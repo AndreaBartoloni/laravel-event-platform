@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_tag', function (Blueprint $table) {
-            //$table->id();
-            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('tag_id')->constrained()->cascadeOnDelete();
-            //$table->timestamps();
+        Schema::create('cars', function (Blueprint $table) {
+            $table->id();
+            $table->string("name");
+            //$table->string("image");
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_tag');
+        Schema::dropIfExists('cars');
     }
 };

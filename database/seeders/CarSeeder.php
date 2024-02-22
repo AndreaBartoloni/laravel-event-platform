@@ -1,11 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Project;
+use App\Models\Car;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProjectSeeder extends Seeder
+class CarSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -30,7 +30,7 @@ class ProjectSeeder extends Seeder
         ];
 
         foreach($cars as $car){
-            $newCar = new Project();
+            $newCar = new Car();
             $newCar->fill($car);
             $newCar->save();
         }

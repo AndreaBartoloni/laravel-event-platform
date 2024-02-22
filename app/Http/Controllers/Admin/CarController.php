@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
-use App\Models\Project;
+use App\Models\Car;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $cars = Project::all();
-        return view('admin.car.index', compact('cars'));
+        $cars = Car::all();
+        return view('admin.car.index', ["cars" => $cars]);
     }
 
     /**
@@ -40,12 +40,11 @@ class ProjectController extends Controller
     {
         $data = $request->all();
 
-        $newCar = new Project();
+        $newCar = new Car();
         $newCar->fill($data);
         $newCar->save();
-        $newCar->tags()->attach($request->tags);
-        return redirect()->route("admin.cars.index");
-
+        $newCar->tags()->attach($request->tags); 
+        return redirect()->route("admin.cars.show", $newCar->id);
     }
 
     /**
@@ -54,9 +53,10 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Car $car)
     {
-        //
+        
+        return view("admin.car.show", compact("cars"));
     }
 
     /**
@@ -65,7 +65,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Car $car)
     {
         //
     }
@@ -77,7 +77,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, Car $car)
     {
         //
     }
@@ -88,7 +88,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy(Car $car)
     {
         //
     }

@@ -12,7 +12,12 @@
                             @foreach ($car->tags as $tag)
                                 {{ $tag->name }}
                             @endforeach
-                            
+                            <div>
+                                <a href="{{ route('admin.cars.show', $car->id) }}">
+                                    <button>Dettagli</button>
+                                </a>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>

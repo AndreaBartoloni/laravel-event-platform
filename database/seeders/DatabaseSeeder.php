@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            ProjectSeeder::class,
+            CarSeeder::class,
             TagSeeder::class,
 
         ]);
